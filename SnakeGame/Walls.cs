@@ -11,7 +11,7 @@ namespace SnakeGame
         public Walls(int mapWidht, int mapHeight)
         {
             wallList = new List<Figure>();
-            //Отрисовка рамочки
+            //Отрисовка рамки
             HorizontalLine upLine = new HorizontalLine(0, mapWidht - 2, 0, '+');
             HorizontalLine downLine = new HorizontalLine(0, mapWidht - 2, mapHeight - 1, '+');
             VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');

@@ -17,7 +17,7 @@ namespace SnakeGame
         public FoodCreator(int mapWidht, int mapHeight, char sym)
         {
             this.mapWidht = mapWidht;
-            this.mapHeight = mapWidht;
+            this.mapHeight = mapHeight;
             this.sym = sym;
         }
         public Point CreateFood()
