@@ -23,7 +23,14 @@ namespace SnakeGame
 			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
+			FoodCreator foodd = new FoodCreator(80, 25, '#');
+			Point f = foodCreator.CreateFood();
+			food.Draw();
+			FoodCreator fooddd = new FoodCreator(80, 25, '^');
+			Point ff = foodCreator.CreateFood();
+			food.Draw();
 
+			List<int> scorelist = new List<int>();
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
@@ -34,7 +41,19 @@ namespace SnakeGame
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
-
+					scorelist.Add(1);
+				}
+				else if (snake.Eat(f))
+				{
+					f = foodCreator.CreateFood();
+					f.Draw();
+					scorelist.Add(2);
+				}
+				else if (snake.Eat(ff))
+				{
+					ff = foodCreator.CreateFood();
+					ff.Draw();
+					scorelist.Add(-1);
 				}
 				else
 				{
@@ -49,6 +68,17 @@ namespace SnakeGame
 				}
 			}
 			Console.ReadLine();
+		}
+		static void GameOver()
+        {
+			int xOffset = 25;
+			int yOffset = 8;
+			WriteText("GAME OVER", xOffset+1, yOffset++);
+			Console.Write("Please, enter your username: ");
+			string p = Console.ReadLine();
+			Console.WriteLine("Hi,", p);
+			Console.WriteLine("Your score is", scorelist);
+
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
 		{

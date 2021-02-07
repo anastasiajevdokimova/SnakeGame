@@ -10,14 +10,20 @@ namespace SnakeGame
     {
         List<int> scoreList = new List<int>();
 
-        List<Person> peopleList = new List<Person>();
+        List<char> peopleList = new List<char>();
         public void ScoreTable()
         {
-            foreach (var s in scoreList)
+            foreach (int s in scoreList)
             {
-
+                foreach (char p in peopleList)
+                {
+                    Console.WriteLine("Hi,", p) ;
+                    Console.WriteLine("Your score is", s);
+                }
             }
+
         }
+        
     }
     class Person
     {
