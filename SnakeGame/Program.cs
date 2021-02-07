@@ -34,6 +34,7 @@ namespace SnakeGame
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
+
 				}
 				else
 				{
