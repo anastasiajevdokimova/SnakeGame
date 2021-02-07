@@ -8,6 +8,8 @@ namespace SnakeGame
 {
 	class Program
 	{
+		List<int> scorelist = new List<int>();
+		
 		static void Main(string[] args)
 		{
 			Console.SetWindowSize(80, 25);
@@ -30,7 +32,6 @@ namespace SnakeGame
 			Point ff = foodCreator.CreateFood();
 			food.Draw();
 
-			List<int> scorelist = new List<int>();
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
@@ -77,7 +78,7 @@ namespace SnakeGame
 			Console.Write("Please, enter your username: ");
 			string p = Console.ReadLine();
 			Console.WriteLine("Hi,", p);
-			Console.WriteLine("Your score is", scorelist);
+			Console.WriteLine("Your score is");
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
