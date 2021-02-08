@@ -56,6 +56,11 @@ namespace SnakeGame
             Console.SetCursorPosition(xOffset, yOffset);
             Console.WriteLine(text);
         }
+        public void UpCurrentPoints()
+        {
+            currentPoints += 10;
+        }
+
     }
 
 }

@@ -85,10 +85,7 @@ namespace SnakeGame
             int xOffset = 25;
             int yOffset = 8;
             WriteText("GAME OVER", xOffset + 1, yOffset++);
-			//Console.Write("Please, enter your username: ");
-			//string p = Console.ReadLine();
-			//Console.WriteLine("Hi,", p);
-			//Console.WriteLine("Your score is");
+			Console.Write("Please, enter your username: ");
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)

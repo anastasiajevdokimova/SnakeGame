@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using WMPLib;
 
 namespace SnakeGame
 {
     class Sounds
     {
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        WindowsMediaPlayer Player = new WindowsMediaPlayer();
         private string pathToMedia;
 
         public Sounds(string pathToResources)
