@@ -32,6 +32,15 @@ namespace SnakeGame
 			Point ff = foodCreator.CreateFood();
 			food.Draw();
 
+			//Пути и настройки
+			Params settings = new Params();
+
+			//Audio player
+			Sounds sound1 = new Sounds(settings.GetResourceFolder());
+			sound1.Play();
+
+			Sounds sound2 = new Sounds(settings.GetResourceFolder());
+
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
@@ -42,6 +51,7 @@ namespace SnakeGame
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
+					sound2.Play();
 					
 				}
 				//else if (snake.Eat(f))
@@ -70,15 +80,15 @@ namespace SnakeGame
 			}
 			Console.ReadLine();
 		}
-		//static void GameOver()
-  //      {
-		//	int xOffset = 25;
-		//	int yOffset = 8;
-		//	WriteText("GAME OVER", xOffset+1, yOffset++);
-		//	Console.Write("Please, enter your username: ");
-		//	string p = Console.ReadLine();
-		//	Console.WriteLine("Hi,", p);
-		//	Console.WriteLine("Your score is");
+        static void GameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            WriteText("GAME OVER", xOffset + 1, yOffset++);
+			//Console.Write("Please, enter your username: ");
+			//string p = Console.ReadLine();
+			//Console.WriteLine("Hi,", p);
+			//Console.WriteLine("Your score is");
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
