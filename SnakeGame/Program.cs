@@ -42,7 +42,7 @@ namespace SnakeGame
 			sound.Play();
 
 			//Score
-			Score score = new Score(settings.GetResourceFolder());
+			//Score score = new Score(settings.GetResourceFolder());
 
 			while (true)
 			{
@@ -55,7 +55,7 @@ namespace SnakeGame
 					food = foodCreator.CreateFood();
 					food.Draw();
 					sound1.PlayEat();
-					score.UpCurrentPoints();
+					//score.UpCurrentPoints();
 
 
 				}
@@ -85,7 +85,7 @@ namespace SnakeGame
 			}
 			GameOver();
 			sound2.PlayEnd();
-			score.WriteBestResult();
+			//score.WriteBestResult();
 			Console.ReadLine();
 		}
         static void GameOver()
