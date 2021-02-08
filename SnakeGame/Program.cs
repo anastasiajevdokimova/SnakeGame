@@ -25,21 +25,20 @@ namespace SnakeGame
 			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
-			FoodCreator foodd = new FoodCreator(80, 25, '#');
-			Point f = foodCreator.CreateFood();
-			food.Draw();
-			FoodCreator fooddd = new FoodCreator(80, 25, '^');
-			Point ff = foodCreator.CreateFood();
-			food.Draw();
+			//FoodCreator foodCreator1 = new FoodCreator(50, 15, '#');
+			//Point food1 = foodCreator.CreateFood();
+			//food1.Draw();
+			//FoodCreator foodCreator2 = new FoodCreator(40, 5, '^');
+			//Point food2 = foodCreator.CreateFood();
+			//food2.Draw();
 
 			//Пути и настройки
 			Params settings = new Params();
 
-			//Audio player
 			Sounds sound1 = new Sounds(settings.GetResourceFolder());
-			sound1.Play();
-
 			Sounds sound2 = new Sounds(settings.GetResourceFolder());
+			Sounds sound = new Sounds(settings.GetResourceFolder());
+			sound.Play();
 
 			while (true)
 			{
@@ -51,22 +50,22 @@ namespace SnakeGame
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
-					sound2.Play();
-					
-				}
-				//else if (snake.Eat(f))
-				//{
-				//	f = foodCreator.CreateFood();
-				//	f.Draw();
-				//	Program.scorelist.Add(2);
+					sound1.PlayEat();
+
+                }
+    //            else if (snake.Eat(food))
+    //            {
+    //                food1= foodCreator.CreateFood();
+    //                food1.Draw();
+				//	sound1.PlayEat();
 				//}
-				//else if (snake.Eat(ff))
-				//{
-				//	ff = foodCreator.CreateFood();
-				//	ff.Draw();
-				//	scorelist.Add(-1);
+    //            else if (snake.Eat(food))
+    //            {
+    //                food2 = foodCreator.CreateFood();
+    //                food2.Draw();
+				//	sound1.PlayEat();
 				//}
-				else
+                else
 				{
 					snake.Move();
 				}
@@ -78,14 +77,17 @@ namespace SnakeGame
 					snake.HandleKey(key.Key);
 				}
 			}
+			GameOver();
+			sound2.PlayEnd();
 			Console.ReadLine();
 		}
         static void GameOver()
         {
             int xOffset = 25;
             int yOffset = 8;
-            WriteText("GAME OVER", xOffset + 1, yOffset++);
+            WriteText("-------GAME OVER-------", xOffset + 1, yOffset++);
 			Console.Write("Please, enter your username: ");
+
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
