@@ -37,6 +37,33 @@ namespace SnakeGame
 
             return record;
         }
+        public void WriteBestResult()
+        {
+            if (currentPoints > Convert.ToInt32(GetBestResult()))
+            {
+                // Write in file
+                StreamWriter streamWriter = new StreamWriter(pathToRecordFile);
+                streamWriter.Write(currentPoints);
+                streamWriter.Close();
+
+                // Write in file
+                StreamWriter streamWriter1 = new StreamWriter(pathToResultsFile, true);
+                streamWriter1.WriteLine(currentPoints);
+                streamWriter1.Close();
+            }
+            else
+            {
+                // Write in file
+                StreamWriter streamWriter = new StreamWriter(pathToResultsFile, true);
+                streamWriter.WriteLine(currentPoints);
+                streamWriter.Close();
+            }
+        }
+        public void UpCurrentPoints()
+        {
+            currentPoints += 10;
+        }
+
         public void ShowCurrentPoints()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -56,11 +83,6 @@ namespace SnakeGame
             Console.SetCursorPosition(xOffset, yOffset);
             Console.WriteLine(text);
         }
-        public void UpCurrentPoints()
-        {
-            currentPoints += 10;
-        }
-
     }
 
 }

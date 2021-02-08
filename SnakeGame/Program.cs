@@ -35,10 +35,14 @@ namespace SnakeGame
 			//Пути и настройки
 			Params settings = new Params();
 
+			//Music
 			Sounds sound1 = new Sounds(settings.GetResourceFolder());
 			Sounds sound2 = new Sounds(settings.GetResourceFolder());
 			Sounds sound = new Sounds(settings.GetResourceFolder());
 			sound.Play();
+
+			//Score
+			Score score = new Score(settings.GetResourceFolder());
 
 			while (true)
 			{
@@ -51,8 +55,10 @@ namespace SnakeGame
 					food = foodCreator.CreateFood();
 					food.Draw();
 					sound1.PlayEat();
+					score.UpCurrentPoints();
 
-                }
+
+				}
     //            else if (snake.Eat(food))
     //            {
     //                food1= foodCreator.CreateFood();
@@ -79,6 +85,7 @@ namespace SnakeGame
 			}
 			GameOver();
 			sound2.PlayEnd();
+			score.WriteBestResult();
 			Console.ReadLine();
 		}
         static void GameOver()
@@ -87,7 +94,6 @@ namespace SnakeGame
             int yOffset = 8;
             WriteText("-------GAME OVER-------", xOffset + 1, yOffset++);
 			Console.Write("Please, enter your username: ");
-
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
