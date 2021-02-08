@@ -8,7 +8,7 @@ namespace SnakeGame
 {
 	class Program
 	{
-		List<int> scorelist = new List<int>();
+		//List<int> scorelist = new List<int>();
 		
 		static void Main(string[] args)
 		{
@@ -42,20 +42,20 @@ namespace SnakeGame
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
-					scorelist.Add(1);
+					
 				}
-				else if (snake.Eat(f))
-				{
-					f = foodCreator.CreateFood();
-					f.Draw();
-					scorelist.Add(2);
-				}
-				else if (snake.Eat(ff))
-				{
-					ff = foodCreator.CreateFood();
-					ff.Draw();
-					scorelist.Add(-1);
-				}
+				//else if (snake.Eat(f))
+				//{
+				//	f = foodCreator.CreateFood();
+				//	f.Draw();
+				//	Program.scorelist.Add(2);
+				//}
+				//else if (snake.Eat(ff))
+				//{
+				//	ff = foodCreator.CreateFood();
+				//	ff.Draw();
+				//	scorelist.Add(-1);
+				//}
 				else
 				{
 					snake.Move();
@@ -70,15 +70,15 @@ namespace SnakeGame
 			}
 			Console.ReadLine();
 		}
-		static void GameOver()
-        {
-			int xOffset = 25;
-			int yOffset = 8;
-			WriteText("GAME OVER", xOffset+1, yOffset++);
-			Console.Write("Please, enter your username: ");
-			string p = Console.ReadLine();
-			Console.WriteLine("Hi,", p);
-			Console.WriteLine("Your score is");
+		//static void GameOver()
+  //      {
+		//	int xOffset = 25;
+		//	int yOffset = 8;
+		//	WriteText("GAME OVER", xOffset+1, yOffset++);
+		//	Console.Write("Please, enter your username: ");
+		//	string p = Console.ReadLine();
+		//	Console.WriteLine("Hi,", p);
+		//	Console.WriteLine("Your score is");
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)
