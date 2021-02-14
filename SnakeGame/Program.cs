@@ -21,14 +21,9 @@ namespace SnakeGame
 			Snake snake = new Snake(p, 4, Direction.RIGHT);
 			snake.Draw();
 
-			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+			FoodCreator foodCreator = new FoodCreator(80, 25, '#');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
-			//Point food1 = foodCreator.CreateFood();
-			//food1.Draw();
-			//FoodCreator foodCreator2 = new FoodCreator(40, 5, '^');
-			//Point food2 = foodCreator.CreateFood();
-			//food2.Draw();
 
 			//Пути и настройки
 			Params settings = new Params();
@@ -54,20 +49,9 @@ namespace SnakeGame
 					score.UpCurrentPoints();
 					score.ShowCurrentPoints();
 					food = foodCreator.CreateFood();
-					food.Draw(ConsoleColor.Red);
+					food.Draw();
+    
 				}
-    //            else if (snake.Eat(food))
-    //            {
-    //                food1= foodCreator.CreateFood();
-    //                food1.Draw();
-				//	sound1.PlayEat();
-				//}
-    //            else if (snake.Eat(food))
-    //            {
-    //                food2 = foodCreator.CreateFood();
-    //                food2.Draw();
-				//	sound1.PlayEat();
-				//}
                 else
 				{
 					snake.Move();
@@ -90,7 +74,6 @@ namespace SnakeGame
             int xOffset = 25;
             int yOffset = 8;
             WriteText("-------GAME OVER-------", xOffset + 1, yOffset++);
-			Console.Write("Please, enter your username: ");
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)

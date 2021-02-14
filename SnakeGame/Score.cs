@@ -61,7 +61,7 @@ namespace SnakeGame
         }
         public void UpCurrentPoints()
         {
-            currentPoints += 10;
+            currentPoints += 1;
         }
 
         public void ShowCurrentPoints()
