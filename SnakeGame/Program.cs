@@ -8,7 +8,6 @@ namespace SnakeGame
 {
 	class Program
 	{
-		//List<int> scorelist = new List<int>();
 		
 		static void Main(string[] args)
 		{
@@ -25,7 +24,6 @@ namespace SnakeGame
 			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
-			//FoodCreator foodCreator1 = new FoodCreator(50, 15, '#');
 			//Point food1 = foodCreator.CreateFood();
 			//food1.Draw();
 			//FoodCreator foodCreator2 = new FoodCreator(40, 5, '^');
@@ -42,7 +40,7 @@ namespace SnakeGame
 			sound.Play();
 
 			//Score
-			//Score score = new Score(settings.GetResourceFolder());
+			Score score = new Score(settings.GetResourceFolder());
 
 			while (true)
 			{
@@ -52,12 +50,11 @@ namespace SnakeGame
 				}
 				if (snake.Eat(food))
 				{
-					food = foodCreator.CreateFood();
-					food.Draw();
 					sound1.PlayEat();
-					//score.UpCurrentPoints();
-
-
+					score.UpCurrentPoints();
+					score.ShowCurrentPoints();
+					food = foodCreator.CreateFood();
+					food.Draw(ConsoleColor.Red);
 				}
     //            else if (snake.Eat(food))
     //            {
