@@ -56,7 +56,6 @@ namespace SnakeGame
 				{
 					snake.Move();
 				}
-
 				Thread.Sleep(100);
 				if (Console.KeyAvailable)
 				{
