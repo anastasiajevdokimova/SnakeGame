@@ -65,7 +65,7 @@ namespace SnakeGame
 			}
 			GameOver();
 			sound2.PlayEnd();
-			//score.WriteBestResult();
+			score.WriteBestResult();
 			Console.ReadLine();
 		}
         static void GameOver()
