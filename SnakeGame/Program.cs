@@ -21,8 +21,10 @@ namespace SnakeGame
 			Snake snake = new Snake(p, 4, Direction.RIGHT);
 			snake.Draw();
 
-			FoodCreator foodCreator = new FoodCreator(80, 25, '#');
+			FoodCreator foodCreator = new FoodCreator(80, 25, '#', '$', '^');
 			Point food = foodCreator.CreateFood();
+			Point spsfood = foodCreator.CreateSpsFood();
+			Point badfood = foodCreator.CreateBadFood();
 			food.Draw();
 
 			//Пути и настройки
@@ -34,8 +36,9 @@ namespace SnakeGame
 			Sounds sound = new Sounds(settings.GetResourceFolder());
 			sound.Play();
 
-			//Score
-			Score score = new Score(settings.GetResourceFolder());
+			Counter count = new Counter(0);
+			count.ScoreWrite();
+			
 
 			while (true)
 			{
@@ -46,17 +49,37 @@ namespace SnakeGame
 				if (snake.Eat(food))
 				{
 					sound1.PlayEat();
-					score.UpCurrentPoints();
-					score.ShowCurrentPoints();
 					food = foodCreator.CreateFood();
 					food.Draw();
+					count.ScoreUp();
+					count.ScoreWrite();
+					if (count.GetScore()%10==0)
+                    {
+						spsfood = foodCreator.CreateSpsFood();
+						spsfood.Draw();
+						badfood = foodCreator.CreateBadFood();
+						badfood.Draw();
+                    }
     
 				}
-                else
+				if (snake.Eat(spsfood))
+                {
+					count.ScoreUp();
+					count.ScoreWrite();
+					sound1.PlayEat();
+				}
+				if (snake.Eat(badfood))
+				{
+					count.ScoreDown();
+					count.ScoreWrite();
+					sound1.PlayEat();
+				}
+				else
 				{
 					snake.Move();
 				}
-				Thread.Sleep(100);
+				new Speed(count.GetScore());
+
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo key = Console.ReadKey();

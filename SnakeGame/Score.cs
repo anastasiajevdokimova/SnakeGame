@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 
 namespace SnakeGame
 {
@@ -59,10 +60,6 @@ namespace SnakeGame
                 streamWriter.Close();
             }
         }
-        public void UpCurrentPoints()
-        {
-            currentPoints += 1;
-        }
 
         public void ShowCurrentPoints()
         {
@@ -73,6 +70,7 @@ namespace SnakeGame
             }
             else if (currentPoints > 0)
             {
+                Thread.Sleep(100);
                 Console.SetCursorPosition(93, 3);
             }
 
