@@ -28,5 +28,17 @@ namespace SnakeGame
         {
             return score;
         }
+        public void ScoreWrite()
+        {
+            int xOffset = 80;
+            int yOffset = 22;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("Score: " + score + " ", xOffset, yOffset++);
+        }
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
     }
 }
