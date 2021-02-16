@@ -38,7 +38,9 @@ namespace SnakeGame
 
 			Counter count = new Counter(0);
 			count.ScoreWrite();
-			
+
+			Colors color = new Colors(0);
+
 
 			while (true)
 			{
