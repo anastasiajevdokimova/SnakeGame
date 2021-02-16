@@ -88,7 +88,8 @@ namespace SnakeGame
 			}
 			GameOver();
 			sound2.PlayEnd();
-			Console.ReadLine();
+			Thread.Sleep(1000);
+			new Score(count.GetScore(), settings.GetResourceFolder());
 		}
         static void GameOver()
         {

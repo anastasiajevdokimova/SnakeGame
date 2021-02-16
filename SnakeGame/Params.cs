@@ -7,7 +7,7 @@ namespace SnakeGame
 {
     public class Params
     {
-        private string resourcesFolder;
+        private string ResourceFolder;
 
         public Params()
         {
@@ -16,11 +16,11 @@ namespace SnakeGame
             string binFolder =
                 Directory.GetCurrentDirectory().ToString().Substring(0, ind).ToString();//путь до указанной папки
 
-            resourcesFolder = binFolder + "resources//";
+            ResourceFolder = binFolder + "resources\\";
         }
         public string GetResourceFolder()
         {
-            return resourcesFolder;
+            return ResourceFolder;
         }
     }
 }

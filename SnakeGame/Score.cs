@@ -32,18 +32,19 @@ namespace SnakeGame
         //    WriteText("Record: ", 90, 5);
         //    WriteText(GetBestResult(), 98, 5);
         //    WriteText("-----------------------", 80, 6);
-        }
-        public string GetBestResult(int score, string pathToResources)
-        {
-            // Read from file
-            Console.Clear();
-            Console.WriteLine("Your name: ");
-            string name = Console.ReadLine();
-            StreamWriter file = new StreamWriter(pathToResources + "score.txt", true); //запись в файл
-            file.WriteLine(name + "-" + score + " ");//запись имени игрока и его счета
-            file.Close();
+    }
+    //public string GetBestResult(int score, string pathToResources)
+    //{
+    //    // Read from file
+    //    Console.Clear();
+    //    Console.WriteLine("Your name: ");
+    //    string name = Console.ReadLine();
+    //    StreamWriter file = new StreamWriter(pathToResources + "score.txt", true); //запись в файл
+    //    file.WriteLine(name + "-" + score + " ");//запись имени игрока и его счета
+    //    file.Close();
 
-        }
+    //}
+}
 
         //public void WriteBestResult()
         //{
@@ -88,6 +89,5 @@ namespace SnakeGame
         //    Console.SetCursorPosition(xOffset, yOffset);
         //    Console.WriteLine(text);
         //}
-    }
+   
 
-}
