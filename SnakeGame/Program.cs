@@ -64,7 +64,7 @@ namespace SnakeGame
 				}
 				if (snake.Eat(spsfood))
                 {
-					count.ScoreUp();
+					count.ScoreUp3();
 					count.ScoreWrite();
 					sound1.PlayEat();
 				}
@@ -88,7 +88,6 @@ namespace SnakeGame
 			}
 			GameOver();
 			sound2.PlayEnd();
-			score.WriteBestResult();
 			Console.ReadLine();
 		}
         static void GameOver()
@@ -96,6 +95,7 @@ namespace SnakeGame
             int xOffset = 25;
             int yOffset = 8;
             WriteText("-------GAME OVER-------", xOffset + 1, yOffset++);
+
 
 		}
 		static void WriteText(String text, int xOffset, int yOffset)

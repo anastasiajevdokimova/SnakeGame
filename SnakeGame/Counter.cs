@@ -14,13 +14,17 @@ namespace SnakeGame
         }
         public Counter(int score)
         {
-            this.score = score
+            this.score = score;
         }
         public void ScoreDown()
         {
             score -= 4;
         }
         public void ScoreUp()
+        {
+            score += 1;
+        }
+        public void ScoreUp3()
         {
             score += 3;
         }
